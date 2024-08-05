@@ -1,8 +1,8 @@
-import { SolanaService } from "../../service/wallet/solana.service";
-import { BitcoinService } from "../../service/wallet/bitcoin.service";
-import { EthereumService } from "../../service/wallet/ethereum.service";
-import { TheOpenNetworkService } from "../../service/wallet/theOpenNetwork.service";
-import { TronService } from "../../service/wallet/tron.service";
+import { BitcoinService } from "src/common/services/wallet/bitcoin/bitcoin.service";
+import { EthereumService } from "src/common/services/wallet/ethereum/ethereum.service";
+import { SolanaService } from "src/common/services/wallet/solana/solana.service";
+import { TheOpenNetworkService } from "src/common/services/wallet/theOpenNetwork/theOpenNetwork.service";
+import { TronService } from "src/common/services/wallet/tron/tron.service";
 
 type BITCOIN_WALLET = {
 	userId: string;

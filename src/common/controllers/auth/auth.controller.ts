@@ -3,8 +3,8 @@ import {
 	HttpCode,
 	Put,
 	Req,
-	UsePipes,
-	ValidationPipe,
+	// UsePipes,
+	// ValidationPipe,
 } from "@nestjs/common";
 import { Request } from "express";
 import { AuthService } from "src/common/services/auth/auth.service";
@@ -15,7 +15,7 @@ export class AuthController {
 
 	@Put("/sign-up/")
 	@HttpCode(201)
-	@UsePipes(new ValidationPipe())
+	// @UsePipes(new ValidationPipe())
 	public async signUpNewClient(@Req() req: Request): Promise<void> {
 		return await this.authService.signUpNewClient(req.body);
 	}

@@ -5,7 +5,7 @@ import { Schema, Prop, SchemaFactory } from "@nestjs/mongoose";
 import { IsBoolean, IsNumber, IsString } from "class-validator";
 import { CUSTOMER, FIAT_NAME } from "src/common/types/customer/customer.types";
 
-export type BaseUserDataDocument = HydratedDocument<Customer>;
+export type CustomerDocument = HydratedDocument<Customer>;
 
 @Schema({ collection: "Customer" })
 export class Customer implements CUSTOMER {
@@ -52,5 +52,5 @@ export class Customer implements CUSTOMER {
 	updatedAt: number;
 }
 
-export const BaseUserDataSchema: mongoose.Schema<Customer> =
+export const CustomerSchema: mongoose.Schema<Customer> =
 	SchemaFactory.createForClass(Customer);

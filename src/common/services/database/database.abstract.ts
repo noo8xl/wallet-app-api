@@ -6,6 +6,6 @@ export abstract class Database {
 	protected abstract updateData(): Promise<string | boolean>;
 	protected abstract deleteData(): Promise<boolean>;
 
-	protected abstract initConnection(): Promise<void> | void;
-	protected abstract closeConnection(): Promise<void> | void;
+	// protected abstract initConnection(): Promise<void> | void;
+	// protected abstract closeConnection(): Promise<void> | void;
 }

@@ -1,10 +1,10 @@
 import { Injectable } from "@nestjs/common";
 import { availableCoins } from "../../config/configs";
-import { ApiError } from "../exceptions/apiError";
+import { ErrorException } from "../exceptions/exceprion.handleError";
 
 @Injectable()
 export class Helper {
-	private readonly errorHandler: ApiError = new ApiError();
+	constructor(private readonly errorHandler: ErrorException) {}
 
 	//getDomainNameFromOrigin -> get domain name
 	async getOriginName(origin: string): Promise<string> {
@@ -13,8 +13,9 @@ export class Helper {
 
 	// validateObject -> validate if object keu has an undefined value
 	async validateObject(obj: any): Promise<void> {
-		for (let i in obj) {
-			if (obj[i] === undefined) return; // throw await this.errorHandler.BadRequest("Found an undefined value")
+		for (const i in obj) {
+			if (obj[i] === undefined)
+				throw await this.errorHandler.BadRequest("Found an undefined value");
 			if (typeof obj[i] === "object") await this.validateObject(obj[i]);
 		}
 	}
@@ -52,14 +53,14 @@ export class Helper {
 		return result;
 	}
 
-	public async prepareCacheData(dto: any): Promise<any> {}
+	// public async prepareCacheData(dto: any): Promise<any> {}
 
 	////////// -----------------------------------
 
 	private shuffleAnArray(array: string[]) {
 		for (let i = array.length - 1; i > 0; i--) {
-			let j = Math.floor(Math.random() * (i + 1));
-			let temp = array[i];
+			const j = Math.floor(Math.random() * (i + 1));
+			const temp = array[i];
 			array[i] = array[j];
 			array[j] = temp;
 		}

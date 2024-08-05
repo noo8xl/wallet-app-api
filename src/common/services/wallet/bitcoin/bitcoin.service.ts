@@ -22,9 +22,11 @@ export class BitcoinService extends Wallet {
 	private address: string;
 
 	private readonly networkPath: string = "m/44'/1'/0'/1"; // 'm/44'/1'/0'/0 for testnet
-	private readonly helper: Helper = new Helper();
 
-	constructor(dto: WALLET_REQUEST_DTO) {
+	constructor(
+		private readonly helper: Helper,
+		dto: WALLET_REQUEST_DTO,
+	) {
 		super(dto.coinName);
 		this.userId = dto.userId;
 		this.coinName = dto.coinName;

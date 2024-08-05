@@ -1,9 +1,11 @@
 import { Response } from "express";
 import { NotificationApi } from "../../api/notificationCall.api";
+import { Injectable } from "@nestjs/common";
 // import { Inject } from "@nestjs/common";
 
 // ApiError -> handle an API errors
-export class ErrorExceptoin {
+@Injectable()
+export class ErrorException {
 	private res: Response;
 	constructor(private readonly notification: NotificationApi) {}
 
